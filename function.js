@@ -178,3 +178,68 @@ const person = {
 }; 
 console.log(person.fullName()); 
 		
+
+//call() method
+const person4 = {
+    fullName: function() {
+                        return this.firstName + " " + this.lastName;
+            }
+}
+
+const person1 = {
+firstName: "John",
+lastName: "Doe"
+}
+
+const person2 = {
+firstName: "Mary",
+lastName: "Doe"
+}
+
+console.log(person4.fullName.call(person1)); 
+
+//apply()
+const person7 = {
+    fullName: function() {
+                        return this.firstName + " " + this.lastName;
+            }
+}
+
+const person6 = {
+firstName: "John",
+lastName: "Doe"
+}
+
+console.log(person7.fullName.apply(person6));
+
+const person8 = {
+    fullName: function(city, country) {
+            return this.firstName + " " + this.lastName + "," + city + "," + country; 
+    }
+}
+
+const person10 = {
+firstName: "John",
+lastName: "Doe"
+}
+
+console.log(person8.fullName.apply(person10, ["Oslo", "Norway"]));
+
+
+
+//bind() method
+const person11 = {
+    firstName: "John",
+    lastName: "Doe",
+    fullName: function () {
+            return this.firstName + " " + this.lastName;
+    }
+}
+
+const member = {
+    firstName: "Hege",
+    lastName: "Nilsen",
+}
+
+let fullName = person11.fullName.bind(member);
+console.log(member)
